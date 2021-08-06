@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">LeanIXTest</string>
+
+
+    <string name="input_query">{launches(limit: 10) {
+    launch_success
+    mission_name
+    launch_date_local
+    launch_site {
+      site_name
+    }
+    details
+    rocket {
+      rocket_name
+    }
+    links {
+      mission_patch
+    }
+  }
+}
+</string>
+    <!--{launchesPast(limit: 10) {mission_name
+    launch_date_local
+    launch_site {
+      site_name
+    }
+    rocket {
+      rocket_name
+    }
+    ships {
+      name
+      image
+    }
+  }
+}-->
+</resources>
