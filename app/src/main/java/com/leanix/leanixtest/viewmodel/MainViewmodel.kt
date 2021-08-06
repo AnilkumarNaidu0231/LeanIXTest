@@ -16,11 +16,10 @@ class MainViewmodel : ViewModel() {
 
 
     var missionDetails: MutableLiveData<Response<OutputResponse>>? = null
-    var sharemissionDetails: MutableLiveData<Launche>? = null
+
 
     init {
         missionDetails = MutableLiveData();
-        sharemissionDetails = MutableLiveData();
     }
 
     fun  getDetails(input:String,scope: CoroutineScope){
@@ -40,7 +39,5 @@ class MainViewmodel : ViewModel() {
         }
     }
 
-    fun setData(outputResponse: Launche?){
-        sharemissionDetails!!.value=outputResponse
-    }
+
 }

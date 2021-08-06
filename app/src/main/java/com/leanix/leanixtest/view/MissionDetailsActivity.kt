@@ -3,11 +3,9 @@ package com.leanix.leanixtest.view
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.leanix.leanixtest.databinding.ActivityMissiondetailsBinding
 import com.leanix.leanixtest.model.Launche
-import com.leanix.leanixtest.viewmodel.MainViewmodel
 
 class MissionDetailsActivity : AppCompatActivity() {
 
@@ -18,7 +16,7 @@ class MissionDetailsActivity : AppCompatActivity() {
         missionDetailsBinding = ActivityMissiondetailsBinding.inflate(layoutInflater)
         setContentView(missionDetailsBinding.root)
 
-       val data= intent.getSerializableExtra("item") as? Launche
+       val data= intent.getParcelableExtra("item") as? Launche
 
         data?.let { getData(it) }
     }
