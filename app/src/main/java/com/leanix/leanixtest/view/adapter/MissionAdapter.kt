@@ -11,6 +11,7 @@ import com.leanix.leanixtest.R
 import com.leanix.leanixtest.databinding.ItemMissionBinding
 import com.leanix.leanixtest.model.Launche
 import kotlinx.android.synthetic.main.item_mission.view.*
+import java.text.SimpleDateFormat
 
 class MissionAdapter(private var items: List<Launche>?) :
     RecyclerView.Adapter<MissionAdapter.ViewHolder>() {
