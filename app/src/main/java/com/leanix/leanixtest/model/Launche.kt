@@ -7,7 +7,7 @@ import java.io.Serializable
 
 @Parcelize
 data class Launche(
-    val details: String,
+    val details: String?,
     val launch_date_local: String,
     val launch_site: LaunchSite,
     val launch_success: Boolean,
