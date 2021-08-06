@@ -1,6 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/iv_image">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_missionname"
+                android:layout_width="wrap_content"
+                android:text="Misson name"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_missionSuccess"
+                android:layout_width="wrap_content"
+                android:text="Misson name"
+                android:paddingStart="10dp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp" />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rocketname"
+            android:layout_width="wrap_content"
+            android:text="Rocket name"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:text="launch details"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_launchsitename"
+                    android:layout_width="wrap_content"
+                    android:text="Site name"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_launchdate"
+                    android:layout_width="wrap_content"
+                    android:text="Launch Date"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_launchdescription"
+                android:layout_width="wrap_content"
+                android:text="launch description"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
