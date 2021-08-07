@@ -28,15 +28,14 @@ object BottomSheetDialog {
             onClick.setOnClick(0)
             dialog.dismiss()
         }
-        dialog.setCancelable(false)
-
+        dialog.setCancelable(true)
         dialog.setContentView(view)
 
         dialog.show()
     }
 
 
-    lateinit var onClick: OnClick
+   private lateinit var onClick: OnClick
 
     fun onClickSort(onClick: OnClick) {
         this.onClick = onClick
