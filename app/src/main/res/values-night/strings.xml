@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="input_query">{launches(limit: 10) {
+    launch_success
+    mission_name
+    launch_date_local
+    launch_site {
+      site_name
+    }
+    details
+    rocket {
+      rocket_name
+    }
+    links {
+      mission_patch
+    }
+  }
+}
+</string>
+    <string name="success">Success</string>
+    <string name="fail">Fail</string>
     <string name="sortby">Sort by</string>
-    <string name="sortby_name">Latest : Name</string>
+    <string name="sortby_name">Name</string>
     <string name="sortby_date">Latest : Date</string>
     <string name="sortby_default">Default</string>
+    <string name="missionname">Mission name</string>
+    <string name="rocketname">Rocket name</string>
+    <string name="launchdetails">Launch Details</string>
+    <string name="launchDate">Launch Date</string>
+    <!--{launchesPast(limit: 10) {mission_name
+    launch_date_local
+    launch_site {
+      site_name
+    }
+    rocket {
+      rocket_name
+    }
+    ships {
+      name
+      image
+    }
+  }
+}-->
+
+
 </resources>

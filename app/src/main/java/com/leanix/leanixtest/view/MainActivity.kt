@@ -1,22 +1,21 @@
 package com.leanix.leanixtest.view
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import com.leanix.leanixtest.R
 import com.leanix.leanixtest.databinding.ActivityMainBinding
 import com.leanix.leanixtest.model.Launche
-import com.leanix.leanixtest.utils.BottomSheetDialog
+import com.leanix.leanixtest.utils.Dialog
 import com.leanix.leanixtest.view.adapter.MissionAdapter
 import com.leanix.leanixtest.viewmodel.MainViewmodel
 import kotlinx.coroutines.*
 
-class MainActivity : AppCompatActivity(), MissionAdapter.OnClick, BottomSheetDialog.OnClick {
+class MainActivity : AppCompatActivity(), MissionAdapter.OnClick, Dialog.OnClick {
     private val scope = CoroutineScope(Job() + Dispatchers.Main)
 
     private lateinit var mainViewModel: MainViewmodel
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity(), MissionAdapter.OnClick, BottomSheetDia
     private lateinit var binding: ActivityMainBinding
 
     lateinit var list: List<Launche>
+    lateinit var progressdialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,12 +36,12 @@ class MainActivity : AppCompatActivity(), MissionAdapter.OnClick, BottomSheetDia
         binding.rvMission.itemAnimator = DefaultItemAnimator()
 
         binding.ivSortby.setOnClickListener {
-            val bottomSheetDialog = BottomSheetDialog
-
+            val bottomSheetDialog = Dialog
             bottomSheetDialog.createBottomSheet(layoutInflater, this)
             bottomSheetDialog.onClickSort(this)
         }
-
+        val dialog = Dialog
+        progressdialog = dialog.showProgress(layoutInflater, this)
         missionList()
     }
 
@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity(), MissionAdapter.OnClick, BottomSheetDia
 
         mainViewModel.getDetails(resources.getString(R.string.input_query), scope)
         mainViewModel.missionDetails?.observe(this, {
+            if (progressdialog.isShowing) {
+                progressdialog.dismiss()
+            }
             list = it.body()?.data?.launches!!
             missionAdapter = MissionAdapter(list)
             binding.rvMission.adapter = missionAdapter
@@ -84,6 +87,7 @@ class MainActivity : AppCompatActivity(), MissionAdapter.OnClick, BottomSheetDia
                 missionAdapter.setOnitemClickListener(this)
             }
             else -> {
+
                 missionAdapter = MissionAdapter(list)
                 binding.rvMission.adapter = missionAdapter
                 missionAdapter.setOnitemClickListener(this)

@@ -4,8 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.leanix.leanixtest.databinding.LayoutSortbyBinding
+import android.R
+import android.app.ProgressDialog
+import android.graphics.Color
 
-object BottomSheetDialog {
+import android.graphics.drawable.ColorDrawable
+import android.view.WindowManager
+import com.leanix.leanixtest.databinding.LayoutProgressBinding
+
+
+object Dialog {
 
 
     fun createBottomSheet(layout: LayoutInflater, context: Context) {
@@ -30,12 +38,26 @@ object BottomSheetDialog {
         }
         dialog.setCancelable(true)
         dialog.setContentView(view)
-
         dialog.show()
     }
 
+    fun showProgress(layout: LayoutInflater, context: Context): ProgressDialog {
+        val dialog = ProgressDialog(context)
+        val binding = LayoutProgressBinding.inflate(layout)
+        val view = binding.root
+        try {
+            dialog.show()
+        } catch (e: WindowManager.BadTokenException) {
+        }
+        dialog.setCancelable(false)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(view)
+        dialog.show()
+        return dialog
+    }
 
-   private lateinit var onClick: OnClick
+
+    private lateinit var onClick: OnClick
 
     fun onClickSort(onClick: OnClick) {
         this.onClick = onClick
