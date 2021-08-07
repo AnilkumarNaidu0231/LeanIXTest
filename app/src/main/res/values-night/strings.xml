@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sortby">Sort by</string>
+    <string name="sortby_name">Latest : Name</string>
+    <string name="sortby_date">Latest : Date</string>
+    <string name="sortby_default">Default</string>
+</resources>

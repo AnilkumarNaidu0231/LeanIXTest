@@ -21,6 +21,10 @@
 </string>
     <string name="success">Success</string>
     <string name="fail">Fail</string>
+    <string name="sortby">Sort by</string>
+    <string name="sortby_name">Name</string>
+    <string name="sortby_date">Latest : Date</string>
+    <string name="sortby_default">Default</string>
     <!--{launchesPast(limit: 10) {mission_name
     launch_date_local
     launch_site {

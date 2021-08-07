@@ -24,6 +24,7 @@ class MissionDetailsActivity : AppCompatActivity() {
     }
 
     private fun getData(data:Launche) {
+        missionDetailsBinding.tvMission.text=data.mission_name
         missionDetailsBinding.ivImage.let {
             Glide.with(this)
                 .load(data.links.mission_patch)
